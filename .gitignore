@@ -1,0 +1,21 @@
+# Distribution
+dist
+*.egg-info
+
+# Generated files
+.coverage
+.tox/*
+.pytest_cache/*
+docs/_build/*
+htmlcov/*
+
+# Compiled Files
+*__pycache__
+*.pyc
+*.*~
+
+# IDEs
+.project
+.pydevproject
+*.sublime-project
+*.sublime-workspace

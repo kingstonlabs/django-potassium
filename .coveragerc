@@ -1,0 +1,3 @@
+[run]
+source: potassium
+omit: */test*

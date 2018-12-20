@@ -1,0 +1,22 @@
+<style>
+  {% for thumbnail in thumbnails %}
+    {% if thumbnail.min_width %}
+      @media screen and (min-width: {{ thumbnail.min_width }}px) {
+        .flexi-image--{{ element_id }} {
+          background-image: url("{{ thumbnail.image.url }}");
+        }
+      }
+    {% else %}
+      .flexi-image--{{ element_id }} {
+        background-image: url("{{ thumbnail.image.url }}");
+      }
+    {% endif %}
+  {% endfor %}
+</style>
+
+<div class="flexi-image flexi-image--{{ element_id }}">
+  <img
+    class="flexi-image__image"
+    src="{{ thumbnails.0.image.url }}"
+    srcset="{% for thumbnail in thumbnails %}{{ thumbnail.image.url }} {{ thumbnail.image.width }}w{% if not forloop.last %}, {% endif %}{% endfor %}">
+</div>
