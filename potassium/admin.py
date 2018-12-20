@@ -7,3 +7,5 @@ from .models import GalleryImage
 class GalleryImageAdmin(admin.ModelAdmin):
     model = GalleryImage
     search_fields = ('title', 'description',)
+    list_display = ('title', 'description', 'created',)
+    readonly_fields = ('created', 'updated',)
