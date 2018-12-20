@@ -15,7 +15,7 @@ tests_require = [
 ]
 
 install_requires = [
-    'django-lanthanum>=0.1.3'
+    'django-lanthanum>=0.1.6'
 ]
 
 

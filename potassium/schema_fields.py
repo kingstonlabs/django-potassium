@@ -50,6 +50,10 @@ class FileField(ObjectField):
         return schema
 
     @property
+    def editor_schema(self):
+        return self.schema
+
+    @property
     def file(self):
         """
         Return a field file from storage to show in templates
@@ -66,3 +70,20 @@ class ImageField(FileField):
     def __init__(self, *args, **kwargs):
         kwargs['media_type'] = 'image'
         super().__init__(**kwargs)
+
+    @property
+    def editor_schema(self):
+        schema = super().editor_schema
+        gallery_picker_option = {
+            'title': 'Show Gallery Picker',
+            'const': 'true',
+            'type': 'string',
+            'default': True,
+            'template': 'true'
+        }
+        options = schema['properties'].setdefault(
+            '_options',
+            {'title': 'Options', 'type': 'object', 'properties': {}}
+        )
+        options['properties']['show_gallery_picker'] = gallery_picker_option
+        return schema
